@@ -20,8 +20,15 @@ export async function generateTypes(): Promise<void> {
       singleQuote: true,
     },
   }).then((compiled) => {
-    fs.writeFileSync(outputFile, compiled);
-    logger.info(`Types written to ${outputFile}`);
+    if (Array.isArray(outputFile)) {
+      outputFile.forEach(out => {
+        fs.writeFileSync(out, compiled);
+        logger.info(`Types written to ${out}`);
+      });
+    } else {
+      fs.writeFileSync(outputFile, compiled);
+      logger.info(`Types written to ${outputFile}`);
+    }
   });
 }
 

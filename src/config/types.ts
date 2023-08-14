@@ -431,7 +431,7 @@ export type Config = {
   /** Control how typescript interfaces are generated from your collections. */
   typescript?: {
     /** Filename to write the generated types to */
-    outputFile?: string;
+    outputFile?: string | string[];
   };
   /** Enable to expose more detailed error information. */
   debug?: boolean;
@@ -529,7 +529,7 @@ export type Config = {
     maxComplexity?: number;
     disablePlaygroundInProduction?: boolean;
     disable?: boolean;
-    schemaOutputFile?: string;
+    schemaOutputFile?: string | string[];
   };
   /**
    * Replace the built-in components with custom ones

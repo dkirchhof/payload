@@ -41,7 +41,7 @@ export default joi.object({
     graphQLPlayground: joi.string(),
   }),
   typescript: joi.object({
-    outputFile: joi.string(),
+    outputFile: [joi.string(), joi.array().items(joi.string())],
   }),
   collections: joi.array(),
   endpoints: endpointsSchema,
@@ -157,7 +157,7 @@ export default joi.object({
       maxComplexity: joi.number(),
       disablePlaygroundInProduction: joi.boolean(),
       disable: joi.boolean(),
-      schemaOutputFile: joi.string(),
+      schemaOutputFile: [joi.string(), joi.array().items(joi.string())],
     }),
   localization: joi.alternatives()
     .try(

@@ -16,8 +16,19 @@ export async function generateGraphQLSchema(): Promise<void> {
   });
 
   logger.info('Compiling GraphQL schema...');
-  fs.writeFileSync(config.graphQL.schemaOutputFile, printSchema(payload.schema));
-  logger.info(`GraphQL written to ${config.graphQL.schemaOutputFile}`);
+
+  const outputFile = config.graphQL.schemaOutputFile;
+  const schema = printSchema(payload.schema);
+
+  if (Array.isArray(outputFile)) {
+    outputFile.forEach(out => {
+      fs.writeFileSync(out, schema);
+      logger.info(`GraphQL written to ${out}`);
+    });
+  } else {
+    fs.writeFileSync(outputFile, schema);
+    logger.info(`GraphQL written to ${outputFile}`);
+  }
 }
 
 // when generateGraphQLSchema.js is launched directly
