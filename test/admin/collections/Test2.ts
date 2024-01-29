@@ -6,7 +6,9 @@ export const Test2Collection: CollectionConfig = {
   admin: {
     components: {
       views: {
-        Edit: TestEditView,
+        Edit: {
+          Default: TestEditView,
+        },
       },
     },
   },
