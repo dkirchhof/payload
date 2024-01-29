@@ -168,6 +168,8 @@ const EditView: React.FC<IndexProps> = (props) => {
     user,
   }
 
+console.log("edit", docPermissions)
+
   return (
     <EditDepthContext.Provider value={1}>
       <FormQueryParams.Provider value={{ formQueryParams, setFormQueryParams }}>

@@ -1,22 +1,22 @@
 import React, { Fragment } from 'react'
 import { useTranslation } from 'react-i18next'
 
-import type { FieldTypes } from '../../../../forms/field-types'
-import type { CollectionEditViewProps } from '../../../types'
+import { FieldTypes } from '../../../../../packages/payload/src/admin/components/forms/field-types'
+import { CollectionEditViewProps } from '../../../../../packages/payload/src/admin/components/views/types'
 
-import { getTranslation } from '../../../../../../utilities/getTranslation'
-import { DocumentControls } from '../../../../elements/DocumentControls'
-import { DocumentFields } from '../../../../elements/DocumentFields'
-import { LeaveWithoutSaving } from '../../../../modals/LeaveWithoutSaving'
-import Meta from '../../../../utilities/Meta'
-import Auth from '../Auth'
-import { SetStepNav } from '../SetStepNav'
-import { Upload } from '../Upload'
-import './index.scss'
+import { getTranslation } from '../../../../../packages/payload/src/utilities/getTranslation'
+import { DocumentControls } from '../../../../../packages/payload/src/admin/components/elements/DocumentControls'
+import { DocumentFields } from '../../../../../packages/payload/src/admin/components/elements/DocumentFields'
+import { LeaveWithoutSaving } from '../../../../../packages/payload/src/admin/components/modals/LeaveWithoutSaving'
+import Meta from '../../../../../packages/payload/src/admin/components/utilities/Meta'
+import Auth from '../../../../../packages/payload/src/admin/components/views/collections/Edit/Auth'
+import { SetStepNav } from '../../../../../packages/payload/src/admin/components/views/collections/Edit/SetStepNav'
+import { Upload } from '../../../../../packages/payload/src/admin/components/views/collections/Edit/Upload'
+// import './index.scss'
 
 const baseClass = 'collection-default-edit'
 
-export const DefaultCollectionEdit: React.FC<
+const TestEditView: React.FC<
   CollectionEditViewProps & {
     fieldTypes: FieldTypes
   }
@@ -37,7 +37,7 @@ export const DefaultCollectionEdit: React.FC<
     permissions,
   } = props
 
-console.log("default", permissions)
+console.log("custom", permissions)
 
   const { auth, fields, upload } = collection
 
@@ -95,3 +95,5 @@ console.log("default", permissions)
     </Fragment>
   )
 }
+
+export default TestEditView

@@ -32,6 +32,8 @@ import { GlobalHidden } from './globals/Hidden'
 import { GlobalNoApiView } from './globals/NoApiView'
 import { clearAndSeedEverything } from './seed'
 import { customNestedViewPath, customViewPath } from './shared'
+import { TestCollection } from './collections/Test'
+import { Test2Collection } from './collections/Test2'
 
 export default buildConfigWithDefaults({
   admin: {
@@ -120,6 +122,8 @@ export default buildConfigWithDefaults({
     Geo,
     CustomIdTab,
     CustomIdRow,
+    TestCollection,
+    Test2Collection,
   ],
   globals: [
     GlobalHidden,
